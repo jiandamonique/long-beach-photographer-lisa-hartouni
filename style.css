@@ -1,0 +1,135 @@
+:root{
+  /* base palette — Muted Grays and Blues, used as-is for surfaces/lines */
+  --paper:#F5F7F8;
+  --panel:#E4EEF4;
+  --mist:#DCE1E9;
+  --line:#CFD5D7;
+  --steel:#7C8B96;
+  /* text */
+  --ink:#262E35;
+  --muted:#5C6A73;
+  /* the one accent — a deep, saturated indigo-blue. Stays in the same cool
+     family as the base palette (cohesive, not clashing) but with enough
+     depth to read as polished/product-forward rather than rustic. Reserved
+     for buttons/links that need to get clicked. */
+  --accent:#233A56;
+  --accent-hover:#162838;
+  --accent-tint:#DCE6EF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 "IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Newsreader",serif;font-weight:500;letter-spacing:-.01em;margin:0;color:var(--ink)}
+p{margin:0 0 16px;max-width:64ch}
+a{color:inherit}
+::selection{background:var(--accent-tint);color:var(--ink)}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* recurring motif: a strip of three bars, standing in for a film contact-sheet frame */
+.filmstrip{display:flex;gap:3px;width:34px}
+.filmstrip span{flex:1;height:14px;background:var(--accent)}
+.filmstrip.light span{background:var(--steel)}
+
+header{position:sticky;top:0;z-index:20;background:rgba(245,247,248,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.topbar{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.wordmark{display:flex;align-items:center;gap:12px;text-decoration:none}
+.wordmark span.name{font-family:"Newsreader",serif;font-size:19px;color:var(--ink)}
+nav.mainnav{display:flex;gap:2px}
+nav.mainnav a{text-decoration:none;font-size:14px;padding:8px 13px;color:var(--muted);border-radius:3px}
+nav.mainnav a:hover{color:var(--ink)}
+nav.mainnav a[aria-current="page"]{color:var(--ink);background:var(--mist)}
+.cta-pill{background:var(--accent);color:#fff;padding:9px 18px;border-radius:3px;text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap}
+.cta-pill:hover{background:var(--accent-hover)}
+
+.hero{padding:76px 0 64px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);margin-bottom:22px}
+.hero h1{font-size:clamp(32px,4.4vw,48px);line-height:1.18;max-width:18ch}
+.hero p.lede{font-size:17.5px;color:var(--muted);margin-top:20px;max-width:56ch}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;text-decoration:none;font-weight:500;font-size:14px;border:1px solid var(--ink);border-radius:3px;color:var(--ink)}
+.btn.solid{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 2px 6px rgba(35,58,86,.28)}
+.btn.solid:hover{background:var(--accent-hover);border-color:var(--accent-hover);box-shadow:0 3px 9px rgba(35,58,86,.36)}
+.btn.ghost{background:transparent;border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+
+.section{padding:64px 0;border-bottom:1px solid var(--line)}
+.section-head{max-width:60ch;margin-bottom:36px}
+.section-head .kicker{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:10px}
+.section h2{font-size:clamp(24px,2.8vw,32px)}
+.muted{color:var(--muted)}
+
+/* About: chronology, since a career history genuinely is a sequence */
+.timeline{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.timeline li{position:relative;padding:0 0 26px 26px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;background:var(--accent);border-radius:50%}
+.timeline .yr{font-family:"Newsreader",serif;font-size:15px;color:var(--muted);display:block;margin-bottom:3px}
+.timeline p{font-size:15px;margin-bottom:0}
+
+/* Projects / Photographs: quiet cards, no tabs */
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.project-card{background:var(--paper);padding:28px}
+.project-card .filmstrip{margin-bottom:16px}
+.project-card h3{font-size:19px;margin-bottom:10px}
+.project-card p{font-size:14.5px;color:var(--muted);margin-bottom:0}
+.project-card .meta{font-size:12.5px;color:var(--steel);margin-top:14px;display:block}
+.essay-list{margin:14px 0 0;padding-left:18px;font-size:13.5px;color:var(--muted)}
+.essay-list li{margin-bottom:4px}
+
+/* Photo placeholder grid — drop <img> tags into .photo-slot elements */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.photo-slot{aspect-ratio:4/3;border:1px dashed var(--line);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--steel);font-size:12.5px;text-align:center;padding:10px;background:var(--panel)}
+.photo-slot img{width:100%;height:100%;object-fit:cover;border-radius:4px;display:block}
+
+/* Press: clippings list */
+.press-list{list-style:none;margin:0;padding:0}
+.press-list li{padding:18px 0;border-top:1px solid var(--line);display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
+.press-list li:last-child{border-bottom:1px solid var(--line)}
+.press-outlet{font-family:"Newsreader",serif;font-size:16px;min-width:150px}
+.press-desc{font-size:14.5px;color:var(--muted);flex:1;min-width:220px;margin:0}
+.press-year{font-size:13px;color:var(--steel)}
+
+/* Support band */
+.support-band{background:var(--panel)}
+.support-card{border:1px solid var(--line);background:var(--paper);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.support-card h3{font-size:20px;margin-bottom:8px}
+.support-card p{font-size:14.5px;color:var(--muted);margin-bottom:0;max-width:48ch}
+
+.services{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.services span{border:1px solid var(--line);border-radius:3px;padding:8px 14px;font-size:13.5px;color:var(--muted)}
+
+.direct-give{margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
+.give-grid{display:flex;gap:14px;flex-wrap:wrap}
+.give-card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 22px;display:flex;flex-direction:column;gap:4px;min-width:200px}
+.give-label{font-size:12px;color:var(--steel)}
+.give-value{font-family:"Newsreader",serif;font-size:17px;color:var(--ink)}
+
+/* Shop page */
+.shop-hero-card{border:1px solid var(--line);background:var(--panel);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;margin-bottom:36px}
+.shop-hero-card h3{font-size:20px;margin-bottom:8px}
+.shop-hero-card p{font-size:14.5px;color:var(--muted);margin-bottom:0;max-width:48ch}
+.purchase-list{list-style:none;margin:0;padding:0}
+.purchase-list li{padding:18px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.purchase-list li:last-child{border-bottom:1px solid var(--line)}
+.purchase-name{font-family:"Newsreader",serif;font-size:17px}
+.purchase-desc{font-size:13.5px;color:var(--muted);margin-top:3px}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-list{list-style:none;margin:0;padding:0;font-size:15px}
+.contact-list li{padding:10px 0;border-top:1px solid var(--line)}
+.contact-list li:last-child{border-bottom:1px solid var(--line)}
+.contact-list a{text-decoration:none;color:var(--ink)}
+.contact-list a:hover{color:var(--accent)}
+.contact-list .label{display:block;font-size:12px;color:var(--steel);margin-bottom:2px}
+
+footer{padding:28px 0;font-size:13px;color:var(--steel);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:760px){
+  nav.mainnav{display:none}
+  .project-grid{grid-template-columns:1fr}
+  .photo-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .support-card,.shop-hero-card{flex-direction:column;align-items:flex-start}
+}
