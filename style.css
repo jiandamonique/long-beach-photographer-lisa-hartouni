@@ -126,6 +126,34 @@ nav.mainnav a[aria-current="page"]{color:var(--ink);background:var(--mist)}
 
 footer{padding:28px 0;font-size:13px;color:var(--steel);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
+/* Blog archive */
+.post-list{list-style:none;margin:0;padding:0}
+.post-list li{padding:24px 0;border-top:1px solid var(--line)}
+.post-list li:last-child{border-bottom:1px solid var(--line)}
+.post-list a.post-title{font-family:"Newsreader",serif;font-size:20px;text-decoration:none;color:var(--ink)}
+.post-list a.post-title:hover{color:var(--accent)}
+.post-date{font-size:12.5px;color:var(--steel);display:block;margin-bottom:6px}
+.post-excerpt{font-size:14.5px;color:var(--muted);margin-top:8px;margin-bottom:0}
+.feed-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:3px;padding:6px 12px}
+.feed-link:hover{color:var(--ink);border-color:var(--ink)}
+
+/* Blog post */
+.post-header{max-width:70ch;margin-bottom:8px}
+.post-header .post-date{margin-bottom:14px}
+.post-header h1{font-size:clamp(28px,3.6vw,40px);line-height:1.2}
+.post-body{max-width:70ch}
+.post-body p{font-size:16px}
+.post-body h2{font-size:22px;margin-top:36px;margin-bottom:14px}
+.post-cta{border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:24px 28px;margin:36px 0}
+.post-cta p{margin-bottom:14px}
+
+/* FAQ (About page) */
+.faq-list{list-style:none;margin:0;padding:0}
+.faq-list li{padding:20px 0;border-top:1px solid var(--line)}
+.faq-list li:last-child{border-bottom:1px solid var(--line)}
+.faq-q{font-family:"Newsreader",serif;font-size:17px;margin-bottom:8px}
+.faq-a{font-size:14.5px;color:var(--muted);margin-bottom:0}
+
 @media(max-width:760px){
   nav.mainnav{display:none}
   .project-grid{grid-template-columns:1fr}
