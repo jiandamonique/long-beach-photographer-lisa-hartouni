@@ -15,11 +15,19 @@
   -->
 
   <item>
-    <title>Long Beach Photojournalist Launches Campaign to Rebuild Web Presence and Sustain Four Decades of Social-Justice Photography</title>
+    <title>Long Beach Photojournalist's 40 Years of Social-Justice Work Was Hacked — Now She's Fighting to Rebuild It</title>
     <link>https://your-domain-here.example/blog-press-release-gofundme.html</link>
     <guid>https://your-domain-here.example/blog-press-release-gofundme.html</guid>
     <pubDate>Wed, 16 Sep 2026 00:00:00 -0700</pubDate>
     <description>Lisa Hartouni has launched a GoFundMe campaign to rebuild her web presence after a series of malware attacks, and to build sustainable infrastructure for her ongoing photography and archival projects.</description>
+  </item>
+
+  <item>
+    <title>Jack Is Home (Jack made international news!)</title>
+    <link>https://your-domain-here.example/blog-jack-reunited.html</link>
+    <guid>https://your-domain-here.example/blog-jack-reunited.html</guid>
+    <pubDate>Wed, 23 Nov 2022 00:00:00 -0800</pubDate>
+    <description>A short note of gratitude after Lisa's German shepherd and service dog, Jack, was safely returned three weeks after being stolen from her Long Beach yard.</description>
   </item>
 
 </channel>

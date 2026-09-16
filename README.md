@@ -6,4 +6,6 @@ This site is a temporary home for Lisa's bio, current projects, and press, while
 
 - **About** — `index.html`
 - **Photographs** — `photographs.html`
+- **Press** — `press.html`
 - **Shop** — `shop.html`
+- **Blog** — `blog.html`
