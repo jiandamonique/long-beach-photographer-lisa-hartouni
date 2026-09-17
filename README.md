@@ -12,4 +12,4 @@ This site is a temporary home for Lisa's story, her photographs, and the press t
 - **Shop** — `shop.html` — prints and originals
 - **Blog** — `blog.html` — news and campaign updates
 
-If her work means something to you, the [About page](index.html) has more, and every page links to ways to help.
+If her work means something to you, [click here](index.html) to visit, and every page links to ways to help.
