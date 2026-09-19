@@ -6,13 +6,21 @@
   <atom:link href="https://your-domain-here.example/rss.xml" rel="self" type="application/rss+xml" />
   <description>News, updates, and press about Lisa Hartouni's photography and community projects.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 19 Sep 2026 13:00:00 -0700</lastBuildDate>
+  <lastBuildDate>Sat, 19 Sep 2026 14:00:00 -0700</lastBuildDate>
 
   <!--
     RSS ARCHIVE
     Add a new <item> at the TOP of this list for each new post (newest first).
     pubDate must be in RFC 822 format, e.g.: Wed, 16 Sep 2026 00:00:00 -0700
   -->
+
+  <item>
+    <title>Looking Back: My Work in the LA Times' 1993 "Portraits From the Street" Review</title>
+    <link>https://your-domain-here.example/blog-portraits-from-the-street-1993.html</link>
+    <guid>https://your-domain-here.example/blog-portraits-from-the-street-1993.html</guid>
+    <pubDate>Sat, 19 Sep 2026 14:00:00 -0700</pubDate>
+    <description>A look back at a 1993 Los Angeles Times review of the group exhibit "Intersecciones/Intersections" at McGroarty Arts Center, which featured Lisa Hartouni's INS detention-center photographs.</description>
+  </item>
 
   <item>
     <title>Looking Back: The 2014 Press-Telegram Feature on My INS Detention Centers Photographs</title>
