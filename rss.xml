@@ -6,13 +6,21 @@
   <atom:link href="https://your-domain-here.example/rss.xml" rel="self" type="application/rss+xml" />
   <description>News, updates, and press about Lisa Hartouni's photography and community projects.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 19 Sep 2026 14:00:00 -0700</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 12:00:00 -0700</lastBuildDate>
 
   <!--
     RSS ARCHIVE
     Add a new <item> at the TOP of this list for each new post (newest first).
     pubDate must be in RFC 822 format, e.g.: Wed, 16 Sep 2026 00:00:00 -0700
   -->
+
+  <item>
+    <title>Slow and Steady</title>
+    <link>https://your-domain-here.example/blog-gofundme-seed-money-update.html</link>
+    <guid>https://your-domain-here.example/blog-gofundme-seed-money-update.html</guid>
+    <pubDate>Sun, 20 Sep 2026 12:00:00 -0700</pubDate>
+    <description>A GoFundMe update from Lisa Hartouni, thanking early contributors and sharing her goal of raising $3,000 in seed money to rebuild her website structure.</description>
+  </item>
 
   <item>
     <title>Looking Back: My Work in the LA Times' 1993 "Portraits From the Street" Review</title>
