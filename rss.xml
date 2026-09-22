@@ -6,13 +6,21 @@
   <atom:link href="https://your-domain-here.example/rss.xml" rel="self" type="application/rss+xml" />
   <description>News, updates, and press about Lisa Hartouni's photography and community projects.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 20 Sep 2026 12:00:00 -0700</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 12:00:00 -0700</lastBuildDate>
 
   <!--
     RSS ARCHIVE
     Add a new <item> at the TOP of this list for each new post (newest first).
     pubDate must be in RFC 822 format, e.g.: Wed, 16 Sep 2026 00:00:00 -0700
   -->
+
+  <item>
+    <title>Some Very Welcome News From UCLA</title>
+    <link>https://your-domain-here.example/blog-ucla-alumni-feature.html</link>
+    <guid>https://your-domain-here.example/blog-ucla-alumni-feature.html</guid>
+    <pubDate>Mon, 21 Sep 2026 12:00:00 -0700</pubDate>
+    <description>UCLA Alumni featured Lisa Hartouni's work in their Class Notes, covering the cyberattacks, the fundraiser, and the "From Here to Manzanar" project.</description>
+  </item>
 
   <item>
     <title>Slow and Steady</title>
