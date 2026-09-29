@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Recovery Status | Lisa Hartouni</title>
+  <meta name="description" content="Current recovery status for Lisa Hartouni's websites. Malware has been isolated. Architecture rebuild is underway — support the GoFundMe to help complete restoration.">
+  <meta name="robots" content="index, follow">
+
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── SHARED / TAB CHROME ── */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background: #f3f4f6;
+    }
+
+    /* Tab navigation bar */
+    .tab-nav {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #6b7280;
+      padding: 0.95rem 1.75rem;
+      letter-spacing: 0.01em;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: #111827; }
+    .tab-btn.active {
+      color: #111827;
+      border-bottom-color: #4f46e5;
+    }
+
+    /* Tab panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+
+    /* ══════════════════════════════════════════
+       RECOVERY TAB — light, status-page style
+    ══════════════════════════════════════════ */
+
+    #tab-recovery {
+      background: #f3f4f6;
+      min-height: 100vh;
+      padding: 2.5rem 1.25rem 4rem;
+      color: #111827;
+    }
+
+    .recovery-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Site header */
+    .site-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .site-tagline {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+    .site-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+    .site-header h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+
+    /* Overall status banner */
+    .status-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .status-banner.in-progress {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      color: #92400e;
+    }
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-amber { background: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,0.2); }
+    .dot-green { background: #22c55e; }
+    .dot-gray  { background: #9ca3af; }
+    .dot-red   { background: #ef4444; }
+
+    /* Component status card */
+    .status-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .status-card-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #6b7280;
+    }
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid #f9fafb;
+      gap: 1rem;
+    }
+    .status-row:last-child { border-bottom: none; }
+    .status-row-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      min-width: 0;
+    }
+    .status-row-left span {
+      font-size: 0.9rem;
+      color: #374151;
+      font-weight: 500;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-green  { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+    .badge-amber  { background: #fffbeb; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-gray   { background: #f9fafb; color: #6b7280; border: 1px solid #e5e7eb; }
+
+    /* Incident section */
+    .incident-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .incident-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .incident-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #9ca3af;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .incident-body {
+      padding: 1.25rem;
+    }
+    .incident-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.6rem;
+    }
+    .incident-body p {
+      font-size: 0.88rem;
+      color: #4b5563;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .incident-body p:last-child { margin-bottom: 0; }
+    .incident-update {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.85rem;
+    }
+    .incident-update:last-child { margin-bottom: 0; }
+    .update-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+    .update-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #d1d5db;
+      flex-shrink: 0;
+    }
+    .update-dot.done { background: #22c55e; }
+    .update-dot.active { background: #f59e0b; }
+    .update-line {
+      width: 1px;
+      flex: 1;
+      background: #e5e7eb;
+      margin-top: 4px;
+    }
+    .update-content-col { flex: 1; min-width: 0; }
+    .update-label {
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 0.15rem;
+    }
+    .update-desc { color: #6b7280; }
+
+    /* CTA block */
+    .cta-card {
+      background: #4f46e5;
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .cta-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+    .cta-card p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.25rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #4f46e5;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* Direct payment row */
+    .pay-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .pay-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.8rem;
+      color: #ffffff;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .pay-chip:hover { background: rgba(255,255,255,0.25); }
+
+    /* Recovery footer */
+    .recovery-footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-top: 2rem;
+    }
+    .recovery-footer a { color: #6b7280; text-decoration: underline; }
+
+
+    /* ══════════════════════════════════════════
+       CAMPAIGN TAB — light, accessible
+    ══════════════════════════════════════════ */
+
+    #tab-campaign {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --warm: #d97706;
+      --success: #059669;
+      --danger: #dc2626;
+      --gold: #d97706;
+
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* Hero */
+    #tab-campaign .hero {
+      background: linear-gradient(160deg, #eef2ff 0%, #f0f4ff 50%, #f8fafc 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #tab-campaign .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 60% 20%, rgba(79,70,229,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    #tab-campaign .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--warm);
+      background: rgba(217,119,6,0.1);
+      border: 1px solid rgba(217,119,6,0.25);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    #tab-campaign .hero h1 {
+      font-size: clamp(1.75rem, 5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--text);
+    }
+    #tab-campaign .hero h1 span { color: var(--accent); }
+    #tab-campaign .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+    #tab-campaign .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    #tab-campaign .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 2.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    #tab-campaign .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    #tab-campaign .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    #tab-campaign .btn-secondary:hover { border-color: var(--accent); background: rgba(79,70,229,0.04); }
+
+    /* Progress bar */
+    #tab-campaign .progress-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    #tab-campaign .progress-numbers {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+    }
+    #tab-campaign .progress-raised {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--success);
+    }
+    #tab-campaign .progress-goal { font-size: 0.88rem; color: var(--muted); }
+    #tab-campaign .progress-bar-track {
+      background: var(--border);
+      border-radius: 999px;
+      height: 8px;
+      margin-bottom: 0.6rem;
+      overflow: hidden;
+    }
+    #tab-campaign .progress-bar-fill {
+      background: linear-gradient(90deg, var(--success), var(--accent));
+      height: 100%;
+      border-radius: 999px;
+      width: 26%;
+    }
+    #tab-campaign .progress-meta { font-size: 0.82rem; color: var(--muted); }
+    #tab-campaign .progress-meta strong { color: var(--text); }
+
+    /* Layout */
+    #tab-campaign .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    #tab-campaign .section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    #tab-campaign .section:last-child { border-bottom: none; }
+    #tab-campaign .section-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    #tab-campaign .section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+      color: var(--text);
+    }
+    #tab-campaign p { color: #374151; margin-bottom: 1rem; }
+    #tab-campaign p:last-child { margin-bottom: 0; }
+
+    /* Urgency banner */
+    #tab-campaign .urgency-banner {
+      background: rgba(220,38,38,0.05);
+      border: 1px solid rgba(220,38,38,0.2);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    #tab-campaign .urgency-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    #tab-campaign .urgency-text { font-size: 0.9rem; color: #7f1d1d; line-height: 1.5; }
+    #tab-campaign .urgency-text strong { color: #450a0a; }
+
+    /* Milestones */
+    #tab-campaign .milestone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    @media (max-width: 540px) { #tab-campaign .milestone-grid { grid-template-columns: 1fr; } }
+    #tab-campaign .milestone-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    #tab-campaign .milestone-card.active { border-color: rgba(79,70,229,0.35); }
+    #tab-campaign .milestone-amount {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+    #tab-campaign .milestone-card.stretch .milestone-amount { color: var(--gold); }
+    #tab-campaign .milestone-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+    #tab-campaign .milestone-items { list-style: none; }
+    #tab-campaign .milestone-items li {
+      font-size: 0.88rem;
+      color: #374151;
+      padding: 0.35rem 0;
+      border-top: 1px solid var(--border);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    #tab-campaign .milestone-items li::before {
+      content: '\2192';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    #tab-campaign .milestone-card.stretch .milestone-items li::before { color: var(--gold); }
+
+    /* Donors */
+    #tab-campaign .donor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    #tab-campaign .donor-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+    #tab-campaign .donor-name { color: var(--text); font-weight: 500; }
+    #tab-campaign .donor-amount { color: var(--success); font-weight: 700; font-size: 0.95rem; }
+
+    /* Updates */
+    #tab-campaign .update-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    #tab-campaign .update-date {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    #tab-campaign .update-card p { font-size: 0.93rem; }
+
+    /* Payment options */
+    #tab-campaign .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+    }
+    #tab-campaign .payment-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    #tab-campaign .payment-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+    }
+    #tab-campaign .payment-card.primary-pay {
+      border-color: rgba(79,70,229,0.35);
+      background: rgba(79,70,229,0.03);
+    }
+    #tab-campaign .payment-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    #tab-campaign .payment-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--text); }
+    #tab-campaign .payment-detail { font-size: 0.8rem; color: var(--muted); }
+
+    /* Share */
+    #tab-campaign .share-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    #tab-campaign .share-bar p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    #tab-campaign .share-bar strong { color: var(--text); }
+    #tab-campaign .share-btns { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+    #tab-campaign .share-btn {
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: border-color 0.15s;
+    }
+    #tab-campaign .share-btn:hover { border-color: var(--accent); }
+
+    /* Campaign page footer */
+    #tab-campaign .page-footer {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    #tab-campaign .page-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      .tab-btn { padding: 0.85rem 1rem; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TAB NAVIGATION ── -->
+  <nav class="tab-nav" role="tablist" aria-label="Page sections">
+    <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-recovery" id="btn-recovery" data-tab="recovery">
+      📋 Recovery Status
+    </button>
+    <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-campaign" id="btn-campaign" data-tab="campaign">
+      💙 Support the Campaign
+    </button>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+       TAB 1 — RECOVERY STATUS (light)
+  ════════════════════════════════════════ -->
+  <div id="tab-recovery" class="tab-panel active" role="tabpanel" aria-labelledby="btn-recovery">
+    <div id="tab-recovery-inner">
+
+    <div class="recovery-wrap">
+
+      <!-- Header -->
+      <header class="site-header">
+        <div class="site-tagline">Long Beach Documentary Photographer.</div>
+        <div class="site-name">Lisa Hartouni · Long Beach, CA</div>
+        <h1>Website Recovery Status</h1>
+
+        <div class="status-banner in-progress">
+          <span class="status-dot dot-amber"></span>
+          Restoration in Progress — Awaiting Funding to Continue
+        </div>
+      </header>
+
+      <!-- Component status -->
+      <div class="status-card">
+        <div class="status-card-header">Recovery Phases</div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-amber"></span>
+            <span>1. Threat Isolation &amp; Malware Containment</span>
+          </div>
+          <span class="status-badge badge-amber">⟳ In Progress</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-amber"></span>
+            <span>2. Archive Integrity &amp; Database Audit</span>
+          </div>
+          <span class="status-badge badge-amber">⟳ In Progress</span>
+        </div>
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-green"></span>
+            <span>3. Interim / Temp Website Deployment</span>
+          </div>
+          <span class="status-badge badge-green">✓ Complete</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>4. Asset Recovery</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 3</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>5. Architecture Rebuild &amp; Migration</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 4</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>6. Domain Recommissioning</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 5</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>7. Social Media Audit</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 6</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>8. Content Planning</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 7</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>9. Content Creation</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 8</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>10. Sales Funnel Setup &amp; Testing</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 9</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>11. Sales Funnel Launch</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 10</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>12. Social Media Launch &amp; Engagement</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 11</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>13. Fiscal Sponsorship — Applications &amp; Establishment</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 12</span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-gray"></span>
+            <span>14. Ancillary Storefronts (Etsy, Print Sales &amp; More)</span>
+          </div>
+          <span class="status-badge badge-gray">Pending Step 13</span>
+        </div>
+      </div>
+
+      <!-- Incident -->
+      <div class="incident-card">
+        <div class="incident-header">
+          Active Incident
+          <span class="incident-date">Detected September 2026</span>
+        </div>
+        <div class="incident-body">
+          <div class="incident-title">Malware Attack — Multiple Domains Affected</div>
+
+          <div class="incident-update">
+            <div class="update-dot-col">
+              <span class="update-dot active"></span>
+              <span class="update-line"></span>
+            </div>
+            <div class="update-content-col">
+              <div class="update-label">Threat isolation &amp; malware removal — in progress</div>
+              <div class="update-desc">Malicious files being quarantined. Visitor data was not compromised.</div>
+            </div>
+          </div>
+
+          <div class="incident-update">
+            <div class="update-dot-col">
+              <span class="update-dot active"></span>
+              <span class="update-line"></span>
+            </div>
+            <div class="update-content-col">
+              <div class="update-label">Forensic database audit — in progress</div>
+              <div class="update-desc">Database review underway. Full scope of damage to CMS content being confirmed.</div>
+            </div>
+          </div>
+
+          <div class="incident-update">
+            <div class="update-dot-col">
+              <span class="update-dot active"></span>
+              <span class="update-line"></span>
+            </div>
+            <div class="update-content-col">
+              <div class="update-label">Full rebuild underway — funding needed</div>
+              <div class="update-desc">Three WordPress sites require complete rebuild and fortification. Architecture work is ready to begin once funding is secured.</div>
+            </div>
+          </div>
+
+          <div class="incident-update">
+            <div class="update-dot-col">
+              <span class="update-dot"></span>
+            </div>
+            <div class="update-content-col">
+              <div class="update-label">Domains back online</div>
+              <div class="update-desc">Pending completion of Step 3. Est. timeline depends on fundraising progress.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Affected domains -->
+      <div class="status-card">
+        <div class="status-card-header">Affected Domains</div>
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-red"></span>
+            <a href="https://lisahartouni.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">lisahartouni.com</a>
+          </div>
+          <span class="status-badge badge-amber">Offline — Rebuild in Progress</span>
+        </div>
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-red"></span>
+            <a href="https://lhartouni.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">lhartouni.com</a>
+          </div>
+          <span class="status-badge badge-amber">Offline</span>
+        </div>
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-red"></span>
+            <a href="https://fromheretomanzanar.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">fromheretomanzanar.com</a>
+          </div>
+          <span class="status-badge badge-amber">Offline</span>
+        </div>
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-red"></span>
+            <a href="https://intersectionsproject.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">intersectionsproject.com</a>
+          </div>
+          <span class="status-badge badge-amber">Offline</span>
+        </div>
+        <div class="status-row">
+          <div class="status-row-left">
+            <span class="status-dot dot-red"></span>
+            <a href="https://myphotorecords.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">myphotorecords.com</a>
+          </div>
+          <span class="status-badge badge-amber">Offline</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-card">
+        <h2>Help Get This Across the Finish Line</h2>
+        <p>Step 3 — the full rebuild — is ready to begin the moment funding is in place. Contributions go directly to engineering costs and site restoration.</p>
+        <a href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" class="cta-btn" target="_blank" rel="noopener">
+          Donate on GoFundMe →
+        </a>
+        <div class="pay-row">
+          <a href="https://venmo.com/" class="pay-chip" target="_blank" rel="noopener">💳 Venmo · (562) 664-4106</a>
+          <a href="https://www.paypal.com/donate?business=lisahartouni%40ymail.com&no_recurring=0&item_name=Support+Lisa+Hartouni%27s+Photography+Work&currency_code=USD" class="pay-chip" target="_blank" rel="noopener">🅿 PayPal · lisahartouni@ymail.com</a>
+        </div>
+      </div>
+
+      <div class="recovery-footer">
+        Lisa Hartouni · Long Beach, CA · Documentary Photographer<br>
+        Questions? Visit the <button class="tab-btn" style="all:unset;cursor:pointer;color:#6b7280;text-decoration:underline;font-size:0.78rem;" onclick="switchTab('campaign')">campaign page</button> for the full story and updates.<br><br>
+        This page is maintained by a volunteer team.
+      </div>
+
+    </div><!-- /.recovery-wrap -->
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       TAB 2 — CAMPAIGN PAGE (dark)
+  ════════════════════════════════════════ -->
+  <div id="tab-campaign" class="tab-panel" role="tabpanel" aria-labelledby="btn-campaign">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-eyebrow">Recovery Fund — Active</div>
+      <h1>Help <span>Lisa Hartouni</span> Rebuild.<br>Long Beach Documentary Photographer.</h1>
+      <p class="hero-sub">
+        Decades of community photography. Three websites hacked and taken offline.
+        A career that deserves to continue — and a community that can make it happen.
+      </p>
+      <div class="hero-cta-group">
+        <a href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" class="btn-primary" target="_blank" rel="noopener">
+          Donate on GoFundMe →
+        </a>
+        <a href="#how-to-give-c" class="btn-secondary">Other Ways to Give</a>
+      </div>
+      <div class="progress-block">
+        <div class="progress-numbers">
+          <span class="progress-raised">$515 raised</span>
+          <span class="progress-goal">of $2,000 microgoal · $15,000 full goal</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill"></div>
+        </div>
+        <div class="progress-meta">
+          <strong>8 donors</strong> — momentum is building. Every share reaches new people.
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- STORY -->
+      <section class="section">
+        <div class="section-label">Who Lisa Is</div>
+        <h2>A Career Built Around Making Communities Visible</h2>
+        <div class="urgency-banner">
+          <span class="urgency-icon">⚠</span>
+          <span class="urgency-text">
+            <strong>Her websites are currently offline.</strong> Three domains — years of archived work, client contacts, and commission pathways — were taken down by a hack in September 2026. The longer they stay down, the harder it becomes to rebuild momentum.
+          </span>
+        </div>
+        <p>Lisa Hartouni has spent decades using photography and community storytelling to document the people, neighborhoods, and movements that shape Southern California. From organizing tenants and building neighborhood associations in Santa Monica, to working as a photojournalist, independent photographer, and web designer, Lisa has built a life around making change visible.</p>
+        <p>Over the years, that work has grown into deeply rooted long-term projects: <strong>Intersections: Portraits of Neighborhoods</strong>, archival work connected to the Manzanar Pilgrimage, and a moon photography series created through years of patient observation. Her photographs have documented social justice struggles involving detention, voting rights, and police abuse — always grounded in the belief that communities deserve to see themselves reflected with care.</p>
+        <p>Now Lisa needs help to preserve and sustain that work. Contributions will restore her websites, set up print sales so she can earn from her archive, and lay the groundwork for a more stable path forward — one where a hack can never hold her work hostage again.</p>
+      </section>
+
+      <!-- MILESTONES -->
+      <section class="section">
+        <div class="section-label">Where Your Money Goes</div>
+        <h2>Two Milestones. Real Outcomes.</h2>
+        <p>This isn't a vague fundraising total. Here's exactly what each milestone unlocks:</p>
+        <div class="milestone-grid">
+          <div class="milestone-card active">
+            <div class="milestone-amount">$2,000</div>
+            <div class="milestone-label">Microgoal — First unlock</div>
+            <ul class="milestone-items">
+              <li>Initial security response: isolate the breach, audit what was compromised</li>
+              <li>Restore access to site archives and existing content</li>
+              <li>Set up tools to accept commissions and sell prints again</li>
+              <li>Lay groundwork for grant eligibility (requires active digital presence)</li>
+            </ul>
+          </div>
+          <div class="milestone-card stretch">
+            <div class="milestone-amount">$15,000</div>
+            <div class="milestone-label">Full Goal — Complete rebuild</div>
+            <ul class="milestone-items">
+              <li>Rebuild all 3 hacked websites from scratch</li>
+              <li>Full CMS/WordPress restoration + database recovery</li>
+              <li>Security fortification so this can't happen again</li>
+              <li>Etsy storefronts + e-commerce setup</li>
+              <li>Fiscal sponsorship (future donations become tax-deductible)</li>
+              <li>Sales + marketing plan to rebuild her client pipeline</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- DONORS -->
+      <section class="section">
+        <div class="section-label">People Who Believe in This</div>
+        <h2>Current Supporters</h2>
+        <p>These are the people who have already stepped up. Add your name.</p>
+        <div class="donor-list">
+          <div class="donor-row"><span class="donor-name">Doris Ganga</span><span class="donor-amount">$225</span></div>
+          <div class="donor-row"><span class="donor-name">Jeffrey Slayton</span><span class="donor-amount">$100</span></div>
+          <div class="donor-row"><span class="donor-name">Kenneth Breisch</span><span class="donor-amount">$50</span></div>
+          <div class="donor-row"><span class="donor-name">Cyndy Cservenyak</span><span class="donor-amount">$50</span></div>
+          <div class="donor-row"><span class="donor-name">Angela Brinskele</span><span class="donor-amount">$30</span></div>
+          <div class="donor-row"><span class="donor-name">Marie Cartier</span><span class="donor-amount">$20</span></div>
+          <div class="donor-row"><span class="donor-name">+ 2 additional donors</span><span class="donor-amount">$40</span></div>
+        </div>
+        <br>
+        <a href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" class="btn-primary" target="_blank" rel="noopener" style="display:inline-block;">
+          Add your name →
+        </a>
+      </section>
+
+      <!-- UPDATES -->
+      <section class="section">
+        <div class="section-label">Campaign Updates</div>
+        <h2>From Lisa — In Her Own Words</h2>
+        <div class="update-card">
+          <div class="update-date">September 27, 2026</div>
+          <p>We are slowly moving towards our fundraising goal and that is exciting! Every couple of days someone makes a donation and that is so great! I also understand that this is not an easy time financially for most people. I want you all to know that I am very thankful for your attention; and that I understand and wish you all well.</p>
+          <p>We are going to be posting update pages on three of my URLs. The pages will give an update on the progress we're making on the re-creation of my websites; and provide a link to the GoFundMe fundraiser. This may seem like a small step, but it's actually huge in the scheme of things. Thank You!</p>
+        </div>
+        <div class="update-card">
+          <div class="update-date">September 25, 2026</div>
+          <p>I am going to set a goal for raising $1,500 by the end of the weekend. Having said that, every bit of a donation, and sharing this fundraiser on your social network pages will go a long way. If you would kindly consider donating the amount it would cost to take me out for a cup of coffee — the sum amount: $10 (cup of coffee) × 435 friends = $4,350 — an amount way over my weekend goal.</p>
+        </div>
+        <p style="font-size:0.85rem; color:#8899aa; margin-top:0.5rem;">
+          All updates posted directly on the <a href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" target="_blank" rel="noopener" style="color:#4da6ff;">GoFundMe page</a>.
+        </p>
+      </section>
+
+      <!-- HOW TO GIVE -->
+      <section class="section" id="how-to-give-c">
+        <div class="section-label">Give Now</div>
+        <h2>Every Path to Supporting Lisa</h2>
+        <p>GoFundMe is the primary campaign. Direct payment options are also available — 100% goes to Lisa.</p>
+        <div class="payment-grid">
+          <a href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" class="payment-card primary-pay" target="_blank" rel="noopener">
+            <div class="payment-icon">💙</div>
+            <div class="payment-name">GoFundMe</div>
+            <div class="payment-detail">Primary campaign · Tracks publicly</div>
+          </a>
+          <a href="https://venmo.com/" class="payment-card" target="_blank" rel="noopener">
+            <div class="payment-icon">💳</div>
+            <div class="payment-name">Venmo</div>
+            <div class="payment-detail">Search by phone: (562) 664-4106</div>
+          </a>
+          <a href="https://www.paypal.com/donate?business=lisahartouni%40ymail.com&no_recurring=0&item_name=Support+Lisa+Hartouni%27s+Photography+Work&currency_code=USD" class="payment-card" target="_blank" rel="noopener">
+            <div class="payment-icon">🅿</div>
+            <div class="payment-name">PayPal</div>
+            <div class="payment-detail">lisahartouni@ymail.com</div>
+          </a>
+        </div>
+        <p style="font-size:0.82rem; color:#8899aa; margin-top:1rem;">
+          ⚠ Venmo and PayPal donations are direct payments to Lisa and do not appear in the GoFundMe total. If you'd like your donation counted in the campaign progress, please use GoFundMe.
+        </p>
+      </section>
+
+      <!-- SHARE -->
+      <section class="section">
+        <div class="section-label">Can't Give Right Now?</div>
+        <h2>A Share Is Worth More Than You Think</h2>
+        <div class="share-bar">
+          <p><strong>On average, each share generates $50 in donations</strong> by reaching people who don't follow Lisa directly. You don't need to give money to move this forward.</p>
+          <div class="share-btns">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" class="share-btn" target="_blank" rel="noopener">Share on Facebook</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" class="share-btn" target="_blank" rel="noopener">Share on LinkedIn</a>
+            <a href="https://twitter.com/intent/tweet?text=Help+Long+Beach+photographer+Lisa+Hartouni+rebuild+after+a+hack+took+her+websites+offline.+Decades+of+community+photography+deserve+to+survive.&url=https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" class="share-btn" target="_blank" rel="noopener">Share on X</a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.container -->
+
+    <footer class="page-footer">
+      <p>
+        Lisa Hartouni · Long Beach, CA · Documentary &amp; Community Photographer<br>
+        <a href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" target="_blank" rel="noopener">GoFundMe Campaign</a>
+      </p>
+      <p style="margin-top:0.5rem;">
+        This page is maintained by a volunteer team.
+      </p>
+    </footer>
+
+  </div><!-- /#tab-campaign -->
+
+
+  <!-- ── TAB SWITCHER SCRIPT ── -->
+  <script>
+    function switchTab(tabName) {
+      // Update panels
+      document.querySelectorAll('.tab-panel').forEach(function(panel) {
+        panel.classList.toggle('active', panel.id === 'tab-' + tabName);
+      });
+      // Update buttons
+      document.querySelectorAll('.tab-btn[data-tab]').forEach(function(btn) {
+        var isActive = btn.dataset.tab === tabName;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Update URL hash (optional, keeps back-button useful)
+      history.replaceState(null, '', '#' + tabName);
+    }
+
+    // Wire up nav buttons
+    document.querySelectorAll('.tab-btn[data-tab]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        switchTab(this.dataset.tab);
+      });
+    });
+
+    // Restore from hash on load
+    var hash = window.location.hash.replace('#', '');
+    if (hash === 'recovery' || hash === 'campaign') {
+      switchTab(hash);
+    }
+  </script>
+
+</body>
+</html>
