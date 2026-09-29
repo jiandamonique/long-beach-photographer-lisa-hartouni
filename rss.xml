@@ -6,7 +6,7 @@
   <atom:link href="https://your-domain-here.example/rss.xml" rel="self" type="application/rss+xml" />
   <description>News, updates, and press about Lisa Hartouni's photography and community projects.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 20 Sep 2026 12:00:00 -0700</lastBuildDate>
+  <lastBuildDate>Tue, 29 Sep 2026 00:00:00 -0700</lastBuildDate>
 
   <!--
     RSS ARCHIVE
@@ -15,43 +15,11 @@
   -->
 
   <item>
-    <title>Slow and Steady</title>
-    <link>https://your-domain-here.example/blog-gofundme-seed-money-update.html</link>
-    <guid>https://your-domain-here.example/blog-gofundme-seed-money-update.html</guid>
-    <pubDate>Sun, 20 Sep 2026 12:00:00 -0700</pubDate>
-    <description>A GoFundMe update from Lisa Hartouni, thanking early contributors and sharing her goal of raising $3,000 in seed money to rebuild her website structure.</description>
-  </item>
-
-  <item>
-    <title>Looking Back: My Work in the LA Times' 1993 "Portraits From the Street" Review</title>
-    <link>https://your-domain-here.example/blog-portraits-from-the-street-1993.html</link>
-    <guid>https://your-domain-here.example/blog-portraits-from-the-street-1993.html</guid>
-    <pubDate>Sat, 19 Sep 2026 14:00:00 -0700</pubDate>
-    <description>A look back at a 1993 Los Angeles Times review of the group exhibit "Intersecciones/Intersections" at McGroarty Arts Center, which featured Lisa Hartouni's INS detention-center photographs.</description>
-  </item>
-
-  <item>
-    <title>Looking Back: The 2014 Press-Telegram Feature on My INS Detention Centers Photographs</title>
-    <link>https://your-domain-here.example/blog-ins-detention-centers-1987.html</link>
-    <guid>https://your-domain-here.example/blog-ins-detention-centers-1987.html</guid>
-    <pubDate>Sat, 19 Sep 2026 13:00:00 -0700</pubDate>
-    <description>A look back at a 2014 Press-Telegram feature on Lisa Hartouni's "INS Detention Centers" photo series, documenting a 1987 immigration detention facility at the Mardi Gras Motel in Inglewood.</description>
-  </item>
-
-  <item>
-    <title>Good Morning, Long Beach</title>
-    <link>https://your-domain-here.example/blog-good-morning-long-beach.html</link>
-    <guid>https://your-domain-here.example/blog-good-morning-long-beach.html</guid>
-    <pubDate>Thu, 17 Sep 2026 09:00:00 -0700</pubDate>
-    <description>A note from Lisa Hartouni thanking early donors to her GoFundMe campaign and explaining why restoring her web presence matters to the people who rely on it.</description>
-  </item>
-
-  <item>
-    <title>Lisa's First Donation Is In — Thank You, Boost Board</title>
-    <link>https://your-domain-here.example/blog-first-donation-boostboard.html</link>
-    <guid>https://your-domain-here.example/blog-first-donation-boostboard.html</guid>
-    <pubDate>Wed, 16 Sep 2026 12:00:00 -0700</pubDate>
-    <description>Lisa Hartouni's GoFundMe campaign received its first donation, and Boost Board featured her as today's spotlighted campaign.</description>
+    <title>GoFundMe Campaign: Help Sustain Lisa Hartouni's Work</title>
+    <link>https://your-domain-here.example/blog-gofundme-campaign.html</link>
+    <guid>https://your-domain-here.example/blog-gofundme-campaign.html</guid>
+    <pubDate>Tue, 29 Sep 2026 00:00:00 -0700</pubDate>
+    <description>The campaign is live. Here is what it is raising for, where the money goes, and every way to give or share -- including Venmo and PayPal options and Lisa's own updates posted to GoFundMe.</description>
   </item>
 
   <item>
