@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Lisa Hartouni — Blog</title>
-  <link>https://your-domain-here.example/blog.html</link>
-  <atom:link href="https://your-domain-here.example/rss.xml" rel="self" type="application/rss+xml" />
+  <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog.html</link>
+  <atom:link href="https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/rss.xml" rel="self" type="application/rss+xml" />
   <description>News, updates, and press about Lisa Hartouni's photography and community projects.</description>
   <language>en-us</language>
   <lastBuildDate>Tue, 29 Sep 2026 00:00:00 -0700</lastBuildDate>
@@ -16,24 +16,24 @@
 
   <item>
     <title>GoFundMe Campaign: Help Sustain Lisa Hartouni's Work</title>
-    <link>https://your-domain-here.example/blog-gofundme-campaign.html</link>
-    <guid>https://your-domain-here.example/blog-gofundme-campaign.html</guid>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-gofundme-campaign.html</link>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-gofundme-campaign.html</guid>
     <pubDate>Tue, 29 Sep 2026 00:00:00 -0700</pubDate>
     <description>The campaign is live. Here is what it is raising for, where the money goes, and every way to give or share -- including Venmo and PayPal options and Lisa's own updates posted to GoFundMe.</description>
   </item>
 
   <item>
     <title>Long Beach Photojournalist's 40 Years of Social-Justice Work Was Hacked — Now She's Fighting to Rebuild It</title>
-    <link>https://your-domain-here.example/blog-press-release-gofundme.html</link>
-    <guid>https://your-domain-here.example/blog-press-release-gofundme.html</guid>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-press-release-gofundme.html</link>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-press-release-gofundme.html</guid>
     <pubDate>Wed, 16 Sep 2026 00:00:00 -0700</pubDate>
     <description>Lisa Hartouni has launched a GoFundMe campaign to rebuild her web presence after a series of malware attacks, and to build sustainable infrastructure for her ongoing photography and archival projects.</description>
   </item>
 
   <item>
     <title>Jack Is Home (Jack made international news!)</title>
-    <link>https://your-domain-here.example/blog-jack-reunited.html</link>
-    <guid>https://your-domain-here.example/blog-jack-reunited.html</guid>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-jack-reunited.html</link>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-jack-reunited.html</guid>
     <pubDate>Wed, 23 Nov 2022 00:00:00 -0800</pubDate>
     <description>A short note of gratitude after Lisa's German shepherd and service dog, Jack, was safely returned three weeks after being stolen from her Long Beach yard.</description>
   </item>
