@@ -669,10 +669,10 @@
 
   <!-- ── TAB NAVIGATION ── -->
   <nav class="tab-nav" role="tablist" aria-label="Page sections">
-    <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-recovery" id="btn-recovery" data-tab="recovery">
+    <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-recovery" id="btn-recovery" data-tab="recovery">
       📋 Recovery Status
     </button>
-    <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-campaign" id="btn-campaign" data-tab="campaign">
+    <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-campaign" id="btn-campaign" data-tab="campaign">
       💙 Support the Campaign
     </button>
   </nav>
@@ -681,7 +681,7 @@
   <!-- ════════════════════════════════════════
        TAB 1 — RECOVERY STATUS (light)
   ════════════════════════════════════════ -->
-  <div id="tab-recovery" class="tab-panel" role="tabpanel" aria-labelledby="btn-recovery">
+  <div id="tab-recovery" class="tab-panel active" role="tabpanel" aria-labelledby="btn-recovery">
     <div id="tab-recovery-inner">
 
     <div class="recovery-wrap">
@@ -941,7 +941,7 @@
   <!-- ════════════════════════════════════════
        TAB 2 — CAMPAIGN PAGE (dark)
   ════════════════════════════════════════ -->
-  <div id="tab-campaign" class="tab-panel active" role="tabpanel" aria-labelledby="btn-campaign">
+  <div id="tab-campaign" class="tab-panel" role="tabpanel" aria-labelledby="btn-campaign">
 
     <!-- HERO -->
     <section class="hero">
