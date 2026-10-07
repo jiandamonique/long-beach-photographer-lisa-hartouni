@@ -193,3 +193,22 @@ footer.footer-stacked .footer-bottom{display:flex;justify-content:space-between;
   .contact-grid{grid-template-columns:1fr}
   .support-card,.shop-hero-card{flex-direction:column;align-items:flex-start}
 }
+
+/* Site editor credit */
+.site-editor-credit {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+.site-editor-credit a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+.site-editor-credit a:visited {
+  color: #6b7280;
+}
+.site-editor-credit a:hover {
+  text-decoration: underline;
+}

@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Lisa Hartouni — Blog</title>
-  <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog.html</link>
-  <atom:link href="https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/rss.xml" rel="self" type="application/rss+xml" />
+  <link>https://your-domain-here.example/blog.html</link>
+  <atom:link href="https://your-domain-here.example/rss.xml" rel="self" type="application/rss+xml" />
   <description>News, updates, and press about Lisa Hartouni's photography and community projects.</description>
   <language>en-us</language>
   <lastBuildDate>Tue, 29 Sep 2026 00:00:00 -0700</lastBuildDate>
@@ -16,24 +16,66 @@
 
   <item>
     <title>GoFundMe Campaign: Help Sustain Lisa Hartouni's Work</title>
-    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-gofundme-campaign.html</link>
-    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-gofundme-campaign.html</guid>
+    <link>https://your-domain-here.example/blog-gofundme-campaign.html</link>
+    <guid>https://your-domain-here.example/blog-gofundme-campaign.html</guid>
     <pubDate>Tue, 29 Sep 2026 00:00:00 -0700</pubDate>
     <description>The campaign is live. Here is what it is raising for, where the money goes, and every way to give or share -- including Venmo and PayPal options and Lisa's own updates posted to GoFundMe.</description>
+  </item>
+  <item>
+    <title>Some Very Welcome News From UCLA</title>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-ucla-alumni-feature.html</link>
+    <description>UCLA Alumni featured Lisa's work in their Class Notes, covering the cyberattacks, the GoFundMe campaign, and the From Here to Manzanar project.</description>
+    <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-ucla-alumni-feature.html</guid>
+  </item>
+  <item>
+    <title>Slow and Steady</title>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-gofundme-seed-money-update.html</link>
+    <description>A GoFundMe update from Lisa thanking early contributors and sharing her goal of raising $3,000 in seed money to rebuild her website structure.</description>
+    <pubDate>Sun, 20 Sep 2026 00:00:00 +0000</pubDate>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-gofundme-seed-money-update.html</guid>
+  </item>
+  <item>
+    <title>Looking Back: The 2014 Press-Telegram Feature on My INS Detention Centers Photographs</title>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-ins-detention-centers-1987.html</link>
+    <description>A look back at a 2014 Press-Telegram feature on Lisa's INS Detention Centers photo series, documenting a 1987 immigration detention facility at the Mardi Gras Motel in Inglewood.</description>
+    <pubDate>Sat, 19 Sep 2026 00:00:00 +0000</pubDate>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-ins-detention-centers-1987.html</guid>
+  </item>
+  <item>
+    <title>Looking Back: My Work in the LA Times&apos; 1993 &quot;Portraits From the Street&quot; Review</title>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-portraits-from-the-street-1993.html</link>
+    <description>A look back at a 1993 Los Angeles Times review of the group exhibit Intersecciones/Intersections at McGroarty Arts Center, which featured Lisa's INS detention-center photographs.</description>
+    <pubDate>Sat, 19 Sep 2026 00:00:00 +0000</pubDate>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-portraits-from-the-street-1993.html</guid>
+  </item>
+  <item>
+    <title>Good Morning, Long Beach</title>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-good-morning-long-beach.html</link>
+    <description>A note from Lisa thanking early donors to her GoFundMe campaign and explaining why restoring her web presence matters to the people who rely on it.</description>
+    <pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-good-morning-long-beach.html</guid>
+  </item>
+  <item>
+    <title>Lisa&apos;s First Donation Is In &mdash; Thank You, Boost Board</title>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-first-donation-boostboard.html</link>
+    <description>Lisa Hartouni's GoFundMe campaign received its first donation, and Boost Board featured her as today's spotlighted campaign.</description>
+    <pubDate>Tue, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-first-donation-boostboard.html</guid>
   </item>
 
   <item>
     <title>Long Beach Photojournalist's 40 Years of Social-Justice Work Was Hacked — Now She's Fighting to Rebuild It</title>
-    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-press-release-gofundme.html</link>
-    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-press-release-gofundme.html</guid>
+    <link>https://your-domain-here.example/blog-press-release-gofundme.html</link>
+    <guid>https://your-domain-here.example/blog-press-release-gofundme.html</guid>
     <pubDate>Wed, 16 Sep 2026 00:00:00 -0700</pubDate>
     <description>Lisa Hartouni has launched a GoFundMe campaign to rebuild her web presence after a series of malware attacks, and to build sustainable infrastructure for her ongoing photography and archival projects.</description>
   </item>
 
   <item>
     <title>Jack Is Home (Jack made international news!)</title>
-    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-jack-reunited.html</link>
-    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-jack-reunited.html</guid>
+    <link>https://your-domain-here.example/blog-jack-reunited.html</link>
+    <guid>https://your-domain-here.example/blog-jack-reunited.html</guid>
     <pubDate>Wed, 23 Nov 2022 00:00:00 -0800</pubDate>
     <description>A short note of gratitude after Lisa's German shepherd and service dog, Jack, was safely returned three weeks after being stolen from her Long Beach yard.</description>
   </item>
