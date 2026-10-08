@@ -6,13 +6,21 @@
   <atom:link href="https://your-domain-here.example/rss.xml" rel="self" type="application/rss+xml" />
   <description>News, updates, and press about Lisa Hartouni's photography and community projects.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 29 Sep 2026 00:00:00 -0700</lastBuildDate>
+  <lastBuildDate>Sun, 04 Oct 2026 00:00:00 -0700</lastBuildDate>
 
   <!--
     RSS ARCHIVE
     Add a new <item> at the TOP of this list for each new post (newest first).
     pubDate must be in RFC 822 format, e.g.: Wed, 16 Sep 2026 00:00:00 -0700
   -->
+
+  <item>
+    <title>Website Recovery Update</title>
+    <link>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-oct4-web-recovery-update.html</link>
+    <guid>https://jiandamonique.github.io/long-beach-photographer-lisa-hartouni/blog-oct4-web-recovery-update.html</guid>
+    <pubDate>Sun, 04 Oct 2026 00:00:00 -0700</pubDate>
+    <description>An update from Lisa: the malware cleanup is underway on both the front and back end of the affected sites. Lisa is focused on the $2,000 initial goal — every donation and share helps move the needle.</description>
+  </item>
 
   <item>
     <title>GoFundMe Campaign: Help Sustain Lisa Hartouni's Work</title>
