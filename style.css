@@ -95,6 +95,10 @@ nav.mainnav a[aria-current="page"]{color:var(--ink);background:var(--mist)}
 .press-desc{font-size:14.5px;color:var(--muted);flex:1;min-width:220px;margin:0}
 .press-year{font-size:13px;color:var(--steel)}
 
+.section-more{margin-top:18px;font-size:14px}
+.section-more a{color:var(--accent);text-decoration:none}
+.section-more a:hover{text-decoration:underline}
+
 /* Support band */
 .support-band{background:var(--panel)}
 .support-card{border:1px solid var(--line);background:var(--paper);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
