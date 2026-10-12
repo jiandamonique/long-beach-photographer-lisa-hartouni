@@ -88,7 +88,7 @@
 <header>
   <div class="wrap topbar">
     <a class="wordmark" href="index.html">
-      <img class="brand-icon" src="images/camera-icon-small.png" alt="">
+      <img class="brand-icon" src="images/camera-icon-small.png" width="22" height="22" alt="">
       <span class="name">Lisa Hartouni</span>
     </a>
     <nav class="mainnav">
@@ -125,7 +125,7 @@
     <div class="hero-grid">
       <div>
         <div class="eyebrow">
-          <img class="brand-icon" src="images/camera-icon-small.png" alt="">
+          <img class="brand-icon" src="images/camera-icon-small.png" width="22" height="22" alt="">
           Long Beach, California
         </div>
         <h1>Four decades of pointing a camera at the truth.</h1>
@@ -175,12 +175,36 @@
       <div class="kicker">Latest update</div>
       <h2>From Lisa</h2>
     </div>
-    <div class="latest-post">
-      <span class="post-date">October 4, 2026</span>
-      <h3 class="latest-post-title"><a href="blog-oct4-web-recovery-update.html">Website Recovery Update</a></h3>
-      <p>The malware cleanup is underway on both the front and back end of the affected sites. Lisa is focused on the $2,000 initial goal &mdash; every donation and share helps move the needle.</p>
+    <div class="latest-post" id="latest-post-block">
+      <span class="post-date" id="latest-date">October 10, 2026</span>
+      <h3 class="latest-post-title"><a id="latest-link" href="blog-oct10-campaign-update.html">Campaign Update</a></h3>
+      <p id="latest-excerpt">The malware cleanup is nearly complete. Lisa thanks everyone who has contributed and asks for help raising an additional $500 to reach her initial $2,000 goal &mdash; every donation gets us closer to a publication date.</p>
       <a class="btn ghost" style="display:inline-block;margin-top:8px;" href="blog.html">All updates &rarr;</a>
     </div>
+    <script>
+    // Auto-populate latest post from blog.html — fails silently, hardcoded content stays
+    (function() {
+      fetch('blog.html')
+        .then(function(r) { return r.text(); })
+        .then(function(html) {
+          var parser = new DOMParser();
+          var blogDoc = parser.parseFromString(html, 'text/html');
+          var first = blogDoc.querySelector('.post-list li');
+          if (!first) return;
+          var date    = first.querySelector('.post-date');
+          var link    = first.querySelector('.post-title');
+          var excerpt = first.querySelector('.post-excerpt');
+          if (date)    document.getElementById('latest-date').textContent    = date.textContent;
+          if (link) {
+            var a = document.getElementById('latest-link');
+            a.textContent = link.textContent;
+            a.href        = link.getAttribute('href');
+          }
+          if (excerpt) document.getElementById('latest-excerpt').textContent = excerpt.textContent;
+        })
+        .catch(function() {}); // silently keep hardcoded fallback
+    })();
+    </script>
   </section>
 
   <section class="section support-band" id="support">
@@ -276,7 +300,7 @@
   </div>
   <div class="footer-bottom">
     <span>&copy; Lisa Hartouni. Volunteer-staffed site built to accompany ongoing archive &amp; fundraising work &mdash; temp site.</span>
-    <img class="brand-icon" src="images/camera-icon-small.png" alt="">
+    <img class="brand-icon" src="images/camera-icon-small.png" width="22" height="22" alt="">
   </div>
 
   <div class="site-editor-credit"><a href="https://jiandamonique.github.io/" target="_blank" rel="noopener">(site editor: @jiandamonique)</a></div>
