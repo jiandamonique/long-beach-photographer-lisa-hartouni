@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Please Share — Lisa Hartouni</title>
+  <meta name="description" content="Help sustain Lisa Hartouni's 40-year archive of community documentary photography. Share these graphics to spread the word.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Page-specific overrides ── */
+    .share-hero {
+      background: #0e0c0a;
+      color: #f0ece6;
+      text-align: center;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid #2a2826;
+    }
+    .share-hero .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .share-hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: normal;
+      color: #f0ece6;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .share-hero p {
+      max-width: 560px;
+      margin: 0 auto 28px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #b0aa9f;
+    }
+    .share-hero .gfm-link {
+      display: inline-block;
+      background: #f0ece6;
+      color: #0e0c0a;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: background 0.15s;
+    }
+    .share-hero .gfm-link:hover { background: #fff; }
+
+    /* ── Instructions ── */
+    .share-instructions {
+      background: #1a1714;
+      border-bottom: 1px solid #2a2826;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .share-instructions p {
+      font-size: 0.82rem;
+      color: #888;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .share-instructions strong { color: #c8c0b0; }
+
+    /* ── Grid ── */
+    .share-section {
+      background: #111009;
+      padding: 48px 0 64px;
+    }
+    .share-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 max(24px, env(safe-area-inset-left, 0px));
+      padding-right: max(24px, env(safe-area-inset-right, 0px));
+    }
+    @media (max-width: 480px) {
+      .share-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .share-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Graphic frame */
+    .card-graphic {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #1c1a17;
+      position: relative;
+    }
+    .card-graphic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Placeholder state */
+    .card-graphic.placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px dashed #333;
+    }
+    .card-graphic.placeholder span {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .placeholder-icon {
+      width: 40px;
+      height: 40px;
+      opacity: 0.2;
+    }
+
+    /* Download badge */
+    .card-download {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+    .card-download a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10,8,6,0.75);
+      color: #f0ece6;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      backdrop-filter: blur(4px);
+      transition: background 0.15s;
+    }
+    .card-download a:hover { background: rgba(10,8,6,0.92); }
+
+    /* CTA below graphic */
+    .card-cta {
+      background: #1a1714;
+      border: 1px solid #2a2826;
+      border-top: none;
+      padding: 20px 18px 18px;
+    }
+    .card-blurb {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: #c8c0b0;
+      margin-bottom: 16px;
+      font-family: Georgia, serif;
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-share {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+      background: #f0ece6;
+      color: #0e0c0a;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      display: block;
+      transition: background 0.15s;
+    }
+    .btn-share:hover { background: #fff; }
+    .btn-share.secondary {
+      background: transparent;
+      color: #888;
+      border: 1px solid #333;
+    }
+    .btn-share.secondary:hover { border-color: #666; color: #c8c0b0; }
+
+    /* ── Footer ── */
+    .share-footer {
+      background: #0e0c0a;
+      border-top: 1px solid #2a2826;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .share-footer p {
+      font-size: 0.78rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .share-footer a { color: #888; }
+    .share-footer a:hover { color: #c8c0b0; }
+  </style>
+</head>
+<body>
+
+  <div class="share-hero">
+    <p class="eyebrow">Lisa Hartouni · Long Beach, CA</p>
+    <h1>Please Share</h1>
+    <p>Lisa Hartouni has spent 40 years documenting communities, civil rights history, and the stories that deserve to last. Help her keep going — share any of these graphics on social media or send them directly to someone who should know her work.</p>
+    <a class="gfm-link" href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" target="_blank" rel="noopener">Support on GoFundMe</a>
+  </div>
+
+  <div class="share-instructions">
+    <p><strong>How to use:</strong> Download any graphic below and post it to Instagram, Facebook, or share directly. Copy the blurb underneath and paste it as your caption. Every share helps.</p>
+  </div>
+
+  <div class="share-section">
+    <div class="share-grid">
+
+      <!-- Card 1 — Photos Matter (B&W contact sheet) -->
+      <div class="share-card">
+        <div class="card-graphic">
+          <img src="LH-GFM-social-share-v4-oct19.png" alt="Photos Matter — Help Sustain this Vital Work. Lisa Hartouni, Long Beach CA.">
+          <div class="card-download">
+            <a href="LH-GFM-social-share-v4-oct19.png" download>↓ Download</a>
+          </div>
+        </div>
+        <div class="card-cta">
+          <p class="card-blurb">"Photos matter. Help sustain Lisa Hartouni's 40-year archive of community documentary work — currently rebuilding after a cyberattack."</p>
+          <div class="card-actions">
+            <a class="btn-share" href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" target="_blank" rel="noopener">Give on GoFundMe</a>
+            <a class="btn-share secondary" href="LH-GFM-social-share-v4-oct19.png" download>Download Graphic</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 — Social Justice / 40 Years (navy) -->
+      <div class="share-card">
+        <div class="card-graphic">
+          <img src="LH-GFM-social-share-blue-v1.png" alt="Your contribution helps restore over 40 years of documentary photography and preserve Southern California's social-justice history for the next generation.">
+          <div class="card-download">
+            <a href="LH-GFM-social-share-blue-v1.png" download>↓ Download</a>
+          </div>
+        </div>
+        <div class="card-cta">
+          <p class="card-blurb">"Your contribution helps preserve over 40 years of documentary photography and Southern California's social-justice history — for the next generation."</p>
+          <div class="card-actions">
+            <a class="btn-share" href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" target="_blank" rel="noopener">Give on GoFundMe</a>
+            <a class="btn-share secondary" href="LH-GFM-social-share-blue-v1.png" download>Download Graphic</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="share-footer">
+    <p>
+      Lisa Hartouni · Documentary Photographer · Long Beach, CA<br>
+      <a href="index.html">lisahartouni.com</a> ·
+      <a href="https://www.gofundme.com/f/help-sustain-lisa-hartounis-work" target="_blank" rel="noopener">GoFundMe Campaign</a>
+    </p>
+  </div>
+
+</body>
+</html>
