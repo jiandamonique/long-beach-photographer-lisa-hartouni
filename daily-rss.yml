@@ -1,0 +1,49 @@
+name: Auto-generate RSS feed
+
+# When this runs:
+#   - Every day at 8:00 AM Pacific (15:00 UTC)
+#   - Automatically whenever a blog HTML file is pushed to main
+#   - Manually from the GitHub Actions tab (click "Run workflow")
+on:
+  schedule:
+    - cron: "0 15 * * *"   # 8:00 AM Pacific daily
+  push:
+    branches: [main]
+    paths:
+      - "blog-*.html"      # Only trigger on blog post changes
+  workflow_dispatch:        # Allow manual runs
+
+jobs:
+  generate-rss:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # Needed to commit the updated rss.xml
+
+    steps:
+      # 1. Check out the repo
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      # 2. Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Run the RSS generator from the repo root
+      - name: Generate rss.xml
+        run: python scripts/generate_rss.py
+
+      # 4. Commit rss.xml if it changed
+      - name: Commit updated rss.xml
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add rss.xml
+          # Only commit if there are actual changes
+          if git diff --cached --quiet; then
+            echo "rss.xml is already up to date — no commit needed."
+          else
+            git commit -m "Auto-update rss.xml [skip ci]"
+            git push
+          fi
