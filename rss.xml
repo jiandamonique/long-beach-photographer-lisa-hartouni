@@ -15,7 +15,7 @@
       - <meta name="description"> sets the item description
       - <meta property="article:published_time"> sets the pubDate
       - <meta property="og:url"> sets the link/guid
-    Then re-run this script (or wait for the daily GitHub Action to run).
+    Then re-run this script (Option 1: locally; Option 2: ask Claude to run it in-session).
   -->
 
   <item>
